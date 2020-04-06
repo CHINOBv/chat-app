@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 const model = mongoose.model;
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/chat", {
+mongoose.connect("mongodb+srv://Server1:LaPass0102xD@chat-appdb-ws0bf.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true
 });
