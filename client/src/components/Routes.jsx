@@ -25,7 +25,7 @@ export class Routes extends React.Component {
 				<Header session={this.props.session}/>
 				<Switch>
 					<Route exact path= '/' render={ () => <Chat session={getUser} refetch={this.props.refetch}/>}/>
-					<Route exact path= '/login' render={ () => <Login/>}/>
+					<Route exact path= '/login' render={ () => <Login refetch={this.props.refetch} />}/>
 					<Route exact path= '/registro' render={ () => <Regist/>}/>
 				</Switch>
 			</Router>

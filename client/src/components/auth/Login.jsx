@@ -45,6 +45,7 @@ export class Login extends React.Component {
 			await //this.props.refetch();
 			this.clearState();
 			setTimeout( () => {
+				this.props.refetch();
 				this.props.history.push("/");
 			}, 2000)
 		}).catch( error => this.setState({error}) )
