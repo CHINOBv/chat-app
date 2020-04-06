@@ -55,7 +55,7 @@ export class Login extends React.Component {
 		const { username, password, error } = this.state;
 		return (
 			<Fragment>
-				<h1 className="uk-position-top-center uk-margin">Login</h1>
+				<h1 className="text-center mb-4">Login</h1>
 				<div className="uk-container uk-position-center uk-padding uk-margin">
 					{ error && <Error error={error}/> }
 					<Mutation

@@ -16,12 +16,12 @@ export class Routes extends React.Component {
 			
 			getUser = this.props.session.getUser;
 			
-		} catch(e) {
-			return <Redirect to="/login" />
-		}
+		} catch(e){ console.log(e) }
+		const rs = (getUser) ? "" : <Redirect to="/login" />;
 
 		return (
 			<Router>
+				{rs}
 				<Header session={this.props.session}/>
 				<Switch>
 					<Route exact path= '/' render={ () => <Chat session={getUser} refetch={this.props.refetch}/>}/>

@@ -57,7 +57,7 @@ export class Regist extends React.Component {
 
 		return (
 			<Fragment>
-					<h1 className="uk-position-top-center uk-margin">Registro</h1>
+					<h1 className="text-center mb-4">Registro</h1>
 					<div className="uk-container uk-position-center uk-padding uk-margin">
 						{error && <Error error={error}/>}
 						<Mutation 
