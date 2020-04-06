@@ -4,6 +4,7 @@ import { GET_MESSAGES } from '../../querys/index.js'
 
 export class MessageCont extends React.Component {
 	render() {
+		const { name } = this.props.session;
 		return (
 			<Query query={GET_MESSAGES} pollInterval={500}>
 				{({loading, error, data, startPolling, stopPolling, refetch}) => {
@@ -15,7 +16,8 @@ export class MessageCont extends React.Component {
 						<div className="uk-align-center">
 							{data.getMessages.map(message => {
 								return(
-							       <p key={message.id}>{message.text}</p>
+								    
+							       <p key={message.id}><span>{name}</span>{message.text}</p>
 						       	)
 							})}
 						</div>

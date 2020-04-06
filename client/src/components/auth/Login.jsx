@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Mutation } from 'react-apollo';
 import { AUTH_USER } from '../../mutations';
 
@@ -39,9 +40,9 @@ export class Login extends React.Component {
 		e.preventDefault();
 
 		authUser().then( async({ data }) => {
+			//console.log(data)
 			localStorage.setItem("token", data.authUser.token);
-
-			await this.props.refetch();
+			await //this.props.refetch();
 			this.clearState();
 			setTimeout( () => {
 				this.props.history.push("/");
@@ -105,4 +106,4 @@ export class Login extends React.Component {
 	}
 }
 
-export default Login
+export default withRouter(Login)

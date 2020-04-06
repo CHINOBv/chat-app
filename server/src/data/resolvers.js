@@ -24,9 +24,11 @@ export const resolvers = {
 			if(!userAct){
 				return null;
 			}
-			console.log(userAct)
-			const user = Users.findOne({ user: userAct.user });
 
+			const user = Users.findOne({ username: userAct.username });
+
+			return user;
+			//console.log(user)
 		},
 		getMessages: (root) => {
 			return Messages.find({});

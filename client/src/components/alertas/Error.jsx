@@ -5,7 +5,7 @@ const Error = ({ error }) => {
 	return (
 		<div className="uk-alert-danger" uk-alert>
 		    <a className="uk-alert-close" uk-close="true"></a>
-		    <p>Error: {error?.message}</p>
+		    <p>{error?.message}</p>
 		</div>
 	)
 }

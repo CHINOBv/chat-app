@@ -1,9 +1,9 @@
 type User {
-	id: ID!
-	name: String!
-	username: String!
-	password: String!
-	rol: String!
+	id: ID
+	name: String
+	username: String
+	password: String
+	rol: String
 }
 type Message {
 	id: ID

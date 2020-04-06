@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { RootSession } from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'uikit/dist/js/uikit.min.js';
@@ -12,7 +12,7 @@ import { ApolloProvider } from 'react-apollo';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
 const client = new ApolloClient({
-	uri: "http://localhost:4000",
+	uri: "http://localhost:4000/graphql",
 
 	fetchOptions: {
 		credentials: 'include'
@@ -24,6 +24,7 @@ const client = new ApolloClient({
 				authorization: token
 			}
 		});
+		//console.log(operation)
 	},
 
 	cache: new InMemoryCache({
@@ -40,7 +41,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-  	<App/>
+  	<RootSession/>
   </ApolloProvider>
 
   ,

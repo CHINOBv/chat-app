@@ -11,4 +11,12 @@ export const GET_MESSAGES = gql`
 	}		
 `;
 
-//export const GET_USERS
+export const USER_ACT = gql`
+	query getUser{
+		getUser{
+			name
+			username
+			rol
+		}
+	}
+`;

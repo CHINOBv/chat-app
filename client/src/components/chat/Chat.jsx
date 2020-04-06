@@ -9,7 +9,7 @@ export class Chat extends React.Component {
 			<Fragment>
 				<h1 className="uk-heading-line uk-text-center"><span>Mensajes</span></h1>
 				<div className="uk-width-10-9@s uk-panel uk-panel-scrollable">
-					<MessageCont/>
+					<MessageCont session={this.props.session} refetch={this.props.refetch} />
 				</div>
 					<hr/>
 				<div className="uk-container uk-flex uk-flex-column uk-width-3-3 uk-margin">
