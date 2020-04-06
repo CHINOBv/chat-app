@@ -41,4 +41,5 @@ type Mutation {
 	createUser(input: UserInput): String
 	createMessage( input: MessageInput): Message
 	authUser(username: String!, password: String!): Token
+	clearChat: String
 }

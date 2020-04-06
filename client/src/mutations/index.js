@@ -22,4 +22,9 @@ export const AUTH_USER = gql`
 	    token
 	  }
 	}
-	`;
+`;
+export const CLEAR_CHAT = gql`
+	mutation clearChar{
+	  clearChat
+	}	
+`;

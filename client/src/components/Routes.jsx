@@ -5,17 +5,24 @@ import Chat from './chat/Chat.jsx';
 import Login from './auth/Login.jsx';
 import Regist from './auth/Regist.jsx';
 
+import Header from './layout/Header.jsx'
+
 export class Routes extends React.Component {
 	render() {
 		
-		const {getUser} = this.props.session;
+		let getUser;
 
-		const message = (getUser) ? 
-			`Nombre: ${getUser.name}` : 
-				<Redirect to="/login" />;
+		try {
+			
+			getUser = this.props.session.getUser;
+			
+		} catch(e) {
+			return <Redirect to="/login" />
+		}
 
 		return (
 			<Router>
+				<Header session={this.props.session}/>
 				<Switch>
 					<Route exact path= '/' render={ () => <Chat session={getUser} refetch={this.props.refetch}/>}/>
 					<Route exact path= '/login' render={ () => <Login/>}/>

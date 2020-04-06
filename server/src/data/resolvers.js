@@ -88,6 +88,14 @@ export const resolvers = {
 			return {
 				token: createToken( nameUser, process.env.SECRET, "24hr" )
 			}
+		},
+		clearChat: (root) => {
+			return new Promise(( resolve, object ) => {
+				Messages.remove({}, error => {
+					if(error) rejects(error);
+					else resolve("Chat Vaciado");
+				});
+			});
 		}
 	}
 };

@@ -14,6 +14,7 @@ export const GET_MESSAGES = gql`
 export const USER_ACT = gql`
 	query getUser{
 		getUser{
+			id
 			name
 			username
 			rol

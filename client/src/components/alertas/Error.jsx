@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Error = ({ error }) => {
 
 	return (
 		<div className="uk-alert-danger" uk-alert>
-		    <a className="uk-alert-close" uk-close="true"></a>
+		    <Link className="uk-alert-close" uk-close="true"></Link>
 		    <p>{error?.message}</p>
 		</div>
 	)

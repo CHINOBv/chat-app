@@ -47,7 +47,7 @@ export class Regist extends React.Component {
 	}
 
 	render() {
-		const { name, username, password, rpassword, rol, error } = this.state;
+		const { name, username, password, rol, error } = this.state;
 		const input = { 
 			name, 
 			username, 
@@ -75,8 +75,7 @@ export class Regist extends React.Component {
 											<select name="rol" 
 												className="uk-select"
 												onChange={this.updateState}>
-												<option>Elegir...</option>
-												<option value="ADMIN">Administrador</option>
+												<option value=" ">Elegir...</option>
 												<option value="USER">Usuario</option>
 											</select>
 											<button 

@@ -1,4 +1,5 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom'
 
 import { Mutation } from 'react-apollo'
 import { CREATE_MESSAGE } from '../../mutations/index.js'
@@ -9,8 +10,7 @@ const initState ={
 
 export class MessageForm extends React.Component {
 	state = {
-		text: "",
-		user: "5e86f9168d0c1c3a9511d17e"
+		text: ""
 	}
 	
 	validForm = () => {
@@ -23,6 +23,7 @@ export class MessageForm extends React.Component {
 	}
 	
 	render() {
+								//console.log(this.props.session)
 		return (
 			
 			<Mutation 
@@ -34,10 +35,17 @@ export class MessageForm extends React.Component {
 						<form
 							onSubmit={ e => {
 								e.preventDefault();
-								const { text, user } = this.state;
+								const { text } = this.state;
+									let id;
+									try {
+										id = this.props.session.id;
+									} catch(e) {
+										this.props.history.push('/login')
+									}
 								
 									const input = {
-										text, user
+										text, 
+										user: id
 									}
 									createMessage({
 										variables: {input}
@@ -72,4 +80,4 @@ export class MessageForm extends React.Component {
 	}
 }
 
-export default MessageForm
+export default withRouter(MessageForm)
