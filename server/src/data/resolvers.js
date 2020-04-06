@@ -33,11 +33,11 @@ export const resolvers = {
 		getMessages: (root) => {
 			return Messages.find({});
 		},
-		getMessage: (root, { user }) => {
-			return new Promise(( resole, object ) => {
-				 Messages.findById( id, ( error, Messages ) => {
+		getUserMessage: (root, { id }) => {
+			return new Promise(( resolve, object ) => {
+				 Users.findById( id, ( error, User ) => {
 				 	if (error) rejects(error);
-				 	else resolve(Messages);
+				 	else resolve(User);
 				 });
 			});
 		},

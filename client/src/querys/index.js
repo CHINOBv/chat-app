@@ -20,3 +20,14 @@ export const USER_ACT = gql`
 		}
 	}
 `;
+
+export const GET_USER_MESSAGE = gql`
+	query getUserMessage ($id:ID) {
+	  getUserMessage(id:$id){
+	    username
+	    name
+	    id
+	    rol
+	  }
+	}
+`;

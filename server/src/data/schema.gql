@@ -34,7 +34,7 @@ type Query {
 	getUsers: [User]
 	getUser: User
 	getMessages: [Message]
-	getMessage: Message
+	getUserMessage(id:ID): User
 }
 
 type Mutation {
