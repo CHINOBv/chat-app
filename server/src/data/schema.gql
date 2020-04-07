@@ -1,0 +1,39 @@
+type User {
+	id: ID!
+	name: String!
+	username: String!
+	password: String!
+	rol: String!
+}
+type Message {
+	id: ID
+	user: ID
+	text: String
+	date: String
+}
+
+input UserInput {
+	id: ID!
+	name: String!
+	username: String!
+	password: String!
+	rol: String!
+}
+input MessageInput {
+	id: ID
+	user: ID
+	text: String
+	date: String
+}
+
+type Query {
+	getUsers: [User]
+	getUser: User
+	getMessages: [Message]
+	getMessage: Message
+}
+
+type Mutation {
+	createUser(input: UserInput): User
+	createMessage( input: MessageInput): Message
+}
