@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import CerrarSesion from './CerrarSesion.jsx'
 
 const Header = ({session}) => {
-  let barra = (session.getUser) ? <NavAuth session={session}/> : <NavNoAuth/> ;
+  let barra;
+  try {
+    barra = (session.getUser) ? <NavAuth session={session}/> : <NavNoAuth/> ;
+  } catch(e) {
+    console.log(e);
+  }
   return(
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
       <div className="container">
