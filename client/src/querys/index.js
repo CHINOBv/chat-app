@@ -1,6 +1,9 @@
-export const GET_MESSAGES = `
-	query getMessage{
-	  getMessage{
+import gql from 'graphql-tag'
+
+export const GET_MESSAGES = gql`
+	query getMessages{
+	  getMessages{
+	  	id
 	    user
 	    text
 	    date
@@ -8,4 +11,4 @@ export const GET_MESSAGES = `
 	}		
 `;
 
-export const GET_USERS
+//export const GET_USERS
