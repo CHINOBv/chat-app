@@ -4,7 +4,6 @@ const bcrypt = require ('bcrypt');
 mongoose.Promise = global.Promise;
 const model = mongoose.model;
 const Schema = mongoose.Schema;
-const DB_URI = process.env.DB_URI;
 
 mongoose.connect("mongodb+srv://Server1:LaPass0102xD@chat-appdb-ws0bf.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
@@ -44,4 +43,4 @@ const messagesSchema = new Schema({
 
 const Messages = model( "messages", messagesSchema );
 
-module.export = { Users, Messages }
+module.exports = { Users, Messages }

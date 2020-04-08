@@ -1,6 +1,6 @@
 const mongoose = require ('mongoose');
 const { Users, Messages } = require ('./db.js');
-const bcrypt = require ('bcrypt')
+const bcrypt = require ('bcrypt');
 
 const dotenv = require ('dotenv');
 dotenv.config({path: 'variables.env'});
@@ -99,6 +99,7 @@ const resolvers = {
 		}
 	}
 };
-module.export = {
+
+module.exports = {
 	resolvers
 }

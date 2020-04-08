@@ -11,14 +11,13 @@ export class Routes extends React.Component {
 	render() {
 		
 		let getUser;
-		
-		let rs;
+
 		try {
 			
 			getUser = this.props.session.getUser;
-			rs = (getUser) ? "" : <Redirect to="/login" />;
 			
 		} catch(e){ console.log(e) }
+		const rs = (getUser) ? "" : <Redirect to="/login" />;
 
 		return (
 			<Router>
