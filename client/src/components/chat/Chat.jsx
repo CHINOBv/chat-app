@@ -13,7 +13,7 @@ export class Chat extends React.Component {
 				</div>
 					<hr/>
 				<div className="uk-container uk-flex uk-flex-column uk-width-3-3 uk-margin">
-					<MessageForm/>				
+					<MessageForm />				
 				</div>
 			</Fragment>
 		)

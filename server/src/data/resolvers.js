@@ -1,18 +1,32 @@
 import mongoose from 'mongoose';
 import { Users, Messages } from './db.js';
+import bcrypt from 'bcrypt'
+
+import dotenv from 'dotenv';
+dotenv.config({path: 'variables.env'});
+
+import jwt from 'jsonwebtoken';
+
+const createToken = ( userLogin, secret, expiresIn ) => {
+	const { username } = userLogin;
+	//console.log(userLogin)
+
+	return jwt.sign( { username }, secret, { expiresIn } );
+}
+
 
 export const resolvers = {
 	Query: {
 		getUsers: (root) => {
 			return Users.find({});
 		},
-		getUser: (root, { id }) => {
-			return new Promise(( resole, object ) => {
-				 Users.findById( id, ( error, User ) => {
-				 	if (error) rejects(error);
-				 	else resolve(User);
-				 });
-			});
+		getUser: (root, args, { userAct } ) => {
+			if(!userAct){
+				return null;
+			}
+			console.log(userAct)
+			const user = Users.findOne({ user: userAct.user });
+
 		},
 		getMessages: (root) => {
 			return Messages.find({});
@@ -26,24 +40,21 @@ export const resolvers = {
 			});
 		},
 	},
+
 	Mutation: {
-		createUser: (root, { input }) => {
-			const newUser = new Users({
-				id: input.id,
+		createUser: async (root, { input:{username}, input }) => {
+			const existUser = await Users.findOne({username});
+			if(existUser){
+				throw new Error('El Usuario ya existe');
+			}
+
+			const newUser = await new Users({
 				name: input.name,
 				username: input.username,
 				password: input.password,
 				rol: input.rol
-			});
-		//Mongoose Genera el Id
-			newUser.id = newUser._id;
-			
-			return new Promise(( resolve, object ) => {
-				newUser.save(error => {
-					if (error) rejects(error);
-					else resolve(newUser);
-				});
-			});
+			}).save();
+			return "Creado Correctamente"
 		},
 		createMessage: (root, { input }) => {
 			const newMessage = new Messages({
@@ -61,6 +72,20 @@ export const resolvers = {
 				});
 			});
 
+		},
+		authUser: async( root, { username, password } ) => {
+			const nameUser = await Users.findOne({username});
+			if(!nameUser){
+				throw new Error("El Usuario No Existe");
+			}
+			const passwordCorrect = await bcrypt.compare( password, nameUser.password );
+			if(!passwordCorrect){
+				throw new Error("Password Incorrecto");
+			}
+
+			return {
+				token: createToken( nameUser, process.env.SECRET, "24hr" )
+			}
 		}
 	}
 };

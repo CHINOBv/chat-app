@@ -11,14 +11,18 @@ type Message {
 	text: String
 	date: String
 }
+type Token {
+	token: String!
+}
 
 input UserInput {
-	id: ID!
+	id: ID
 	name: String!
 	username: String!
 	password: String!
 	rol: String!
 }
+
 input MessageInput {
 	id: ID
 	user: ID
@@ -34,6 +38,7 @@ type Query {
 }
 
 type Mutation {
-	createUser(input: UserInput): User
+	createUser(input: UserInput): String
 	createMessage( input: MessageInput): Message
+	authUser(username: String!, password: String!): Token
 }

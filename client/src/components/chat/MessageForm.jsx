@@ -27,8 +27,9 @@ export class MessageForm extends React.Component {
 			
 			<Mutation 
 				mutation={ CREATE_MESSAGE }
+				
 				>
-				{(createMessage, {loading, error}) => {
+				{(createMessage, {loading, error, refetch}) => {
 					return (
 						<form
 							onSubmit={ e => {
@@ -41,6 +42,8 @@ export class MessageForm extends React.Component {
 									createMessage({
 										variables: {input}
 									})
+									this.setState({...initState})
+
 							}}
 							>
 							<textarea
@@ -51,8 +54,10 @@ export class MessageForm extends React.Component {
 								this.setState({
 									text: e.target.value
 								})
-								}}
+							}}
+							value={this.state.text}
 								></textarea>
+							
 							<input 
 								className="uk-button uk-button-primary uk-input uk-align-right"
 								type="submit" 

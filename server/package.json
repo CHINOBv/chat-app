@@ -12,6 +12,7 @@
     "bcrypt": "^4.0.1",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
+    "graphql": "^15.0.0",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.5",
