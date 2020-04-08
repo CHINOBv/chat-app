@@ -1,11 +1,18 @@
 const mongoose = require ('mongoose');
 const bcrypt = require ('bcrypt');
 
+const dotenv = require ('dotenv');
+dotenv.config({path: 'variables.env'});
+
 mongoose.Promise = global.Promise;
 const model = mongoose.model;
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb+srv://Server1:LaPass0102xD@chat-appdb-ws0bf.mongodb.net/test?retryWrites=true&w=majority", {
+const userDB = process.env.DB_USER;
+const hostDB = process.env.DB_HOST;
+const passDB = process.env.DB_PASS;
+
+mongoose.connect(`mongodb+srv://${userDB}:${passDB}@${hostDB}/test?retryWrites=true&w=majority`, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 });
