@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
-import { Users, Messages } from './db.js';
-import bcrypt from 'bcrypt'
+const mongoose = require ('mongoose');
+const { Users, Messages } = require ('./db.js');
+const bcrypt = require ('bcrypt')
 
-import dotenv from 'dotenv';
+const dotenv = require ('dotenv');
 dotenv.config({path: 'variables.env'});
 
-import jwt from 'jsonwebtoken';
+const jwt = require ('jsonwebtoken');
 
 const createToken = ( userLogin, secret, expiresIn ) => {
 	const { username } = userLogin;
@@ -15,7 +15,7 @@ const createToken = ( userLogin, secret, expiresIn ) => {
 }
 
 
-export const resolvers = {
+const resolvers = {
 	Query: {
 		getUsers: (root) => {
 			return Users.find({});
@@ -99,3 +99,6 @@ export const resolvers = {
 		}
 	}
 };
+module.export = {
+	resolvers
+}

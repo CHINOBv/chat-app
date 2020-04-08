@@ -1,17 +1,17 @@
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
+const express = require ('express');
+const { ApolloServer } = require ('apollo-server-express');
 
-import { resolvers } from './data/resolvers.js'
-import jwt from 'jsonwebtoken';
-import fs from 'fs';
+const { resolvers } = require ('./data/resolvers.js');
+const jwt = require ('jsonwebtoken');
+const fs = require ('fs');
 
 const app = express();
 
-const typeDefs = fs.readFileSync("./data/schema.gql", "utf8");
+const typeDefs = fs.readFileSync("./src/data/schema.gql", "utf8");
 
 const port = process.env.PORT || 4000;
 
-app.use('/', express.static(`${__dirname}/build`))
+//app.use('/', express.static(`${__dirname}/build`))
 
 const server = new ApolloServer({ typeDefs, resolvers, context: async({req}) => {
 	

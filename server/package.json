@@ -4,7 +4,7 @@
   "description": "Servidor del Chat privado",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./index.js"
+    "start": "node ./src/index.js"
   },
   "author": "David Israel Moreno Resendez",
   "license": "ISC",

@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+const mongoose = require ('mongoose');
+const bcrypt = require ('bcrypt');
 
 mongoose.Promise = global.Promise;
 const model = mongoose.model;
@@ -44,4 +44,4 @@ const messagesSchema = new Schema({
 
 const Messages = model( "messages", messagesSchema );
 
-export { Users, Messages }
+module.export = { Users, Messages }
