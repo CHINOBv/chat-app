@@ -12,14 +12,12 @@ export class MessageCont extends React.Component {
 					//console.log(data)
 
 					return(
-						<div>
-							{
-								data.getMessages.map(message => {
-									return(
-								       <p key={message.id}>{message.text}</p>
-							       	)
-								})
-							}
+						<div className="uk-align-center">
+							{data.getMessages.map(message => {
+								return(
+							       <p key={message.id}>{message.text}</p>
+						       	)
+							})}
 						</div>
 			       	)
 

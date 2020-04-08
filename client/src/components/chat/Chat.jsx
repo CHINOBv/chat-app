@@ -7,9 +7,13 @@ export class Chat extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				<div className="uk-container">
+				<h1 className="uk-heading-line uk-text-center"><span>Mensajes</span></h1>
+				<div className="uk-width-10-9@s uk-panel uk-panel-scrollable">
 					<MessageCont/>
-					<MessageForm/>
+				</div>
+					<hr/>
+				<div className="uk-container uk-flex uk-flex-column uk-width-3-3 uk-margin">
+					<MessageForm/>				
 				</div>
 			</Fragment>
 		)

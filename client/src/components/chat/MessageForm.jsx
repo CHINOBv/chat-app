@@ -41,13 +41,11 @@ export class MessageForm extends React.Component {
 									createMessage({
 										variables: {input}
 									})
-
 							}}
 							>
 							<textarea
 							name="text"
-							cols="30" 
-							rows="10" 
+							className="uk-textarea"
 							placeholder="Escribe Un Mensaje"
 							onChange={ e => {
 								this.setState({
@@ -55,7 +53,11 @@ export class MessageForm extends React.Component {
 								})
 								}}
 								></textarea>
-							<input type="submit" value="Enviar" disabled={ loading || this.validForm()}/>
+							<input 
+								className="uk-button uk-button-primary uk-input uk-align-right"
+								type="submit" 
+								value="Enviar" 
+								disabled={ loading || this.validForm()}/>
 						</form>        
 			        )
 				}}
