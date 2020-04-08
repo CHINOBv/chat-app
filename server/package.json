@@ -4,8 +4,7 @@
   "description": "Servidor del Chat privado",
   "main": "index.js",
   "scripts": {
-    "start": " node ./src/index.js --exec babel-node -e js && npm run bol",
-    "bol": "serve -s build"
+    "start": " node ./src/index.js --exec babel-node -e js"
   },
   "author": "David Israel Moreno Resendez",
   "license": "ISC",

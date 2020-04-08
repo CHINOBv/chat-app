@@ -15,7 +15,7 @@ import { ApolloProvider } from 'react-apollo';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
 const client = new ApolloClient({
-	uri: "/graphql",
+	uri: "https://this-chat-app-server.herokuapp.com/graphql",
 
 	fetchOptions: {
 		credentials: 'include'
