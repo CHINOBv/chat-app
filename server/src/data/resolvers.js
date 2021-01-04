@@ -3,7 +3,7 @@ const { Users, Messages } = require ('./db.js');
 const bcrypt = require ('bcrypt');
 
 const dotenv = require ('dotenv');
-dotenv.config({path: 'variables.env'});
+dotenv.config();
 
 const jwt = require ('jsonwebtoken');
 
@@ -86,7 +86,7 @@ const resolvers = {
 			}
 
 			return {
-				token: createToken( nameUser, process.env.SECRET, "24hr" )
+				token: createToken( nameUser, 'defefefwfew', "24hr" )
 			}
 		},
 		clearChat: (root) => {
